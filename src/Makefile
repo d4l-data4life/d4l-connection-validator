@@ -18,7 +18,7 @@ tls2: build
 tls1: build
 	java -Djdk.tls.client.protocols=TLSv1.1 -Dhttps.protocols=TLSv1.1 SSLPoke $(host) $(port)
 
-tls: tls
+tls: tls3
 
 server-ciphers:
 	nmap -sV --script ssl-enum-ciphers -p $(port) $(host)
