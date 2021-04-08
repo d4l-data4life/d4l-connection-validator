@@ -9,16 +9,16 @@ build:
 url: build
 	java -Djdk.tls.client.protocols=TLSv1.1 -Dhttps.protocols=TLSv1.1 HTTPSClient $(url)
 
-ssl3: build
+tls3: build
 	java -Djdk.tls.client.protocols=TLSv1.3 -Dhttps.protocols=TLSv1.3 SSLPoke $(host) $(port)
 
-ssl2: build
+tls2: build
 	java -Djdk.tls.client.protocols=TLSv1.2 -Dhttps.protocols=TLSv1.2 SSLPoke $(host) $(port)
 
-ssl1: build
+tls1: build
 	java -Djdk.tls.client.protocols=TLSv1.1 -Dhttps.protocols=TLSv1.1 SSLPoke $(host) $(port)
 
-ssl: ssl3
+tls: tls
 
 server-ciphers:
 	nmap -sV --script ssl-enum-ciphers -p $(port) $(host)
@@ -26,4 +26,4 @@ server-ciphers:
 client-ciphers:
 	openssl ciphers | sed 's/:/\n/g' | sort
 
-full: ssl1 ssl2 ssl3 server-ciphers client-ciphers
+full: tls1 tls2 tls3 server-ciphers client-ciphers

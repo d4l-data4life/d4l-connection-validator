@@ -80,10 +80,10 @@ To run all the single targets below just execute.
  make full host=google.de port=443
 ```
 
-### TLS/SSL v1.3
+### TLS v1.3
 
 ```
- make ssl host=google.de port=443
+ make tls host=google.de port=443
 ```
 
 An successful output will look like this
@@ -93,10 +93,10 @@ An successful output will look like this
  Successfully connected
 ```
 
-### TLS/SSL v1.2
+### TLS v1.2
 
 ```
- make ssl2 host=google.de port=443
+ make tls2 host=google.de port=443
 ```
 
 An successful output will look like this
@@ -108,10 +108,10 @@ An successful output will look like this
 
 An error because of missing
 
-### TLS/SSL v1.1
+### TLS v1.1
 
 ```
- make ssl1 host=google.de port=443
+ make tls1 host=google.de port=443
 ```
 
 An successful output will look like this
