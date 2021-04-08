@@ -73,6 +73,7 @@ Use the following command to ssh into the running virtual machine.
  make shell
 ```
 
+### HTTP/HTTPS
 The following command prints out the http get response body to the console.
 ```
  make url url=https://www.google.de
@@ -87,6 +88,16 @@ An successful output will look like this
  ;google.pmc=JSON.parse(pmc);})();</script>        </body></html>
 ```
 
+### Full TLS/SSL Suite
+
+To run all the single targets below just execute.
+
+```
+ make full host=google.de port=443
+```
+
+### TLS/SSL v1.3
+
 ```
  make ssl host=google.de port=443
 ```
@@ -98,6 +109,44 @@ An successful output will look like this
  Successfully connected
 ```
 
+### TLS/SSL v1.2
 
+```
+ make ssl2 host=google.de port=443
+```
+
+An successful output will look like this
+
+```
+ java SSLPoke google.de 443
+ Successfully connected
+```
+
+An error because of missing
+
+### TLS/SSL v1.1
+
+```
+ make ssl1 host=google.de port=443
+```
+
+An successful output will look like this
+
+```
+ java SSLPoke google.de 443
+ Successfully connected
+```
+
+### List supported Server Ciphers
+
+```
+ make server-ciphers host=google.de port=443
+```
+
+### List supported Client Ciphers
+
+```
+ make client-ciphers host=google.de port=443
+```
 
 https://gist.github.com/4ndrej/4547029

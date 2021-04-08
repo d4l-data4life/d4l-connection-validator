@@ -69,7 +69,7 @@ Vagrant.configure("2") do |config|
     apt-get update
     apt -y upgrade
     apt -y install default-jdk
-    apt -y install make
+    apt -y install make nmap
     java -version
   SHELL
 
